@@ -25,19 +25,26 @@ const HomePage = (props) => {
       else setGenreFilter(value);
     };
 
+    const addToFavorites = (movieId) => {
+      const updatedMovies = movies.map((m) =>
+        m.id === movieId ? { ...m, favorite: true } : m
+      );
+      setMovies(updatedMovies);
+    };
 
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        return json.results;
-      })
-      .then((movies) => {
-        setMovies(movies);
-      });
+
+    useEffect(() => {
+      fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+      )
+        .then((res) => res.json())
+        .then((json) => {
+          console.log(json);
+          return json.results;
+        })
+        .then((movies) => {
+          setMovies(movies);
+        });
   }, []);
 
   return (
@@ -53,7 +60,7 @@ const HomePage = (props) => {
             genreFilter={genreFilter}
           />
         </Grid>
-        <MovieList movies={displayedMovies}/>
+        <MovieList movies={displayedMovies} selectFavorite={addToFavorites} />
       </Grid>
     </Grid>
   );
