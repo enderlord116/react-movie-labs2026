@@ -3,13 +3,15 @@ import PageTemplate from "../components/templateMovieListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "@tanstack/react-query";
 import { getMovie } from "../api/tmdb-api";
-import Spinner from '../components/spinner'
+import Spinner from "../components/spinner";
+import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import WriteReview from "../components/cardIcons/writeReview";
 
-const FavoriteMoviesPage = () => {
-  const {favorites: movieIds } = useContext(MoviesContext);
+const FavouriteMoviesPage = () => {
+  const {favourites: movieIds } = useContext(MoviesContext);
 
   // Create an array of queries and run in parallel.
-  const favoriteMovieQueries = useQueries({
+  const favouriteMovieQueries = useQueries({
     queries: movieIds.map((movieId) => {
       return {
         queryKey: ['movie', { id: movieId }],
@@ -19,13 +21,13 @@ const FavoriteMoviesPage = () => {
   });
   
   // Check if any of the parallel queries is still loading.
-  const isPending = favoriteMovieQueries.find((m) => m.isPending === true);
+  const isPending = favouriteMovieQueries.find((m) => m.isPending === true);
 
   if (isPending) {
     return <Spinner />;
   }
 
-  const movies = favoriteMovieQueries.map((q) => {
+  const movies = favouriteMovieQueries.map((q) => {
     q.data.genre_ids = q.data.genres.map(g => g.id)
     return q.data
   });
@@ -36,9 +38,17 @@ const FavoriteMoviesPage = () => {
     <PageTemplate
       title="Favourite Movies"
       movies={movies}
-      selectFavorite={toDo}
+      action={(movie) => {
+        return (
+          <>
+            <RemoveFromFavourites movie={movie} />
+            <WriteReview movie={movie} />
+          </>
+        );
+      }}
     />
   );
+
 };
 
-export default FavoriteMoviesPage;
+export default FavouriteMoviesPage;

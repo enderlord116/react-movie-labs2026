@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavouriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import IconButton from "@mui/material/IconButton";
@@ -17,27 +17,27 @@ import Avatar from '@mui/material/Avatar';
 import { useContext } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-export default function MovieCard({movie}) {
-    const { favorites, addToFavorites } = useContext(MoviesContext);
+export default function MovieCard({movie, action}) {
+    const { favourites, addToFavourites } = useContext(MoviesContext);
 
-  if (favorites.find((id) => id === movie.id)) {
-    movie.favorite = true;
+  if (favourites.find((id) => id === movie.id)) {
+    movie.favourite = true;
   } else {
-    movie.favorite = false
+    movie.favourite = false
   }
 
   const handleAddToFavorite = (e) => {
     e.preventDefault();
-    addToFavorites(movie);
+    addToFavourites(movie);
   };
 
   return (
     <Card>
       <CardHeader
         avatar={
-          movie.favorite ? (
+          movie.favourite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavoriteIcon />
+              <FavouriteIcon />
             </Avatar>
           ) : null
         }
@@ -72,9 +72,7 @@ export default function MovieCard({movie}) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={handleAddToFavorite}>
-            <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
+        {action(movie)}
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
