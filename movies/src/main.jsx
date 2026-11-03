@@ -4,6 +4,9 @@ import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingPage from "./pages/upcomingMoviesPage";
+import PlayingNowPage from "./pages/playingNowMoviesPage.jsx";
+import TopRatedPage from "./pages/topRatedMoviesPage";
+import PopularPage from "./pages/popularMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
@@ -30,6 +33,9 @@ const App = () => {
           <Routes>
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/movies/upcoming" element={<UpcomingPage />} />
+            <Route path="/movies/playing_now" element={<PlayingNowPage/>}/>
+            <Route path="/movies/top_rated" element={<TopRatedPage/>}/>
+            <Route path="/movies/popular" element={<PopularPage/>}/>
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />
