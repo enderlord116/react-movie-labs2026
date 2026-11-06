@@ -1,4 +1,4 @@
-import PageTemplate from "../components/templateMoviePage";
+import PageTemplate from "../components/templatePages/templateMoviePage";
 import ReviewForm from "../components/reviewForm";
 import { useLocation } from "react-router";
 import { useQuery } from "@tanstack/react-query";
