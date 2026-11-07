@@ -1,8 +1,7 @@
 import { getMovies } from "../api/tmdb-api";
-import PageTemplate from '../components/templatePages/templateMovieListPage';
+import PageTemplate from '../components/templatePages/templateMovieDisplayPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavourites'
 import ToggleFavouriteIcon from "../components/cardIcons/toggleFavourite";
 
 const HomePage = (props) => {

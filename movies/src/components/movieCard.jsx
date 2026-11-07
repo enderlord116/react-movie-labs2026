@@ -5,13 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavouriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from '../images/film-poster-placeholder.png'
 import { Link } from "react-router";
-import Avatar from '@mui/material/Avatar';
 import { useContext } from "react";
 import { MoviesContext } from "../contexts/moviesContext";
 
@@ -64,7 +62,7 @@ export default function MovieCard({movie, action}) {
       </CardContent>
       <CardActions disableSpacing>
         {action(movie)}
-        <Link to={`/movies/${movie.id}`}>
+        <Link to={`/movie/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

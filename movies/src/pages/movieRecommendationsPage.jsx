@@ -1,7 +1,7 @@
 import { getMovieRecommedations } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
-import PageTemplate from '../components/templatePages/templateMovieListPage';
+import PageTemplate from '../components/templatePages/templateMovieDisplayPage';
 import Spinner from '../components/spinner';
 import ToggleFavouriteIcon from "../components/cardIcons/toggleFavourite";
 

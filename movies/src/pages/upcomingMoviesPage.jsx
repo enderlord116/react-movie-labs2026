@@ -1,6 +1,6 @@
 import Spinner from '../components/spinner';
 import { useQuery } from '@tanstack/react-query';
-import PageTemplate from '../components/templatePages/templateMovieListPage'
+import PageTemplate from '../components/templatePages/templateMovieDisplayPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
 import AddtoPlaylistIcon from '../components/cardIcons/addToPlaylist'
 

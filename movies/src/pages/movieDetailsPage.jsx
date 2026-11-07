@@ -31,9 +31,14 @@ const MoviePage = (prop) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            <Link to={`/movies/${movie.id}/recommendations`}>
+            <Link to={`/movie/${movie.id}/recommendations`}>
               <Button variant="outlined" size="medium">
                 More Like This
+              </Button>
+            </Link>
+            <Link to={`/movie/${movie.id}/cast`}>
+              <Button variant="outlined" size="medium">
+                Cast
               </Button>
             </Link>
           </PageTemplate>
