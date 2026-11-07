@@ -7,6 +7,7 @@ const MoviesContextProvider = (props) => {
   const [playlist, setPlaylist] = useState( [] )
   const [myReviews, setMyReviews] = useState( {} ) 
 
+  //Not use if favour of toggleFavourite
   const addToFavourites = (movie) => {
     let newFavourites = [];
     if (!favourites.includes(movie.id)){
@@ -18,10 +19,24 @@ const MoviesContextProvider = (props) => {
     setFavourites(newFavourites)
   };
   
+  //Not use if favour of toggleFavourite
   const removeFromFavourites = (movie) => {
     setFavourites( favourites.filter(
       (mId) => mId !== movie.id
     ) )
+  };
+
+  const toggleFavourite = (movie) => {
+    let newFavourites = [];
+    if (!favourites.includes(movie.id)){
+      newFavourites = [...favourites, movie.id];
+    }
+    else{
+      newFavourites = [...favourites.filter(
+        (mId)=>mId!==movie.id
+      )];
+    }
+    setFavourites(newFavourites)
   };
 
   const addToPlaylist = (movie) => {
@@ -40,12 +55,13 @@ const MoviesContextProvider = (props) => {
   };
   //console.log(myReviews);
 
- return (
+  return (
     <MoviesContext.Provider
       value={{
         favourites,
         addToFavourites,
         removeFromFavourites,
+        toggleFavourite,
         playlist,
         addToPlaylist,
         addReview,

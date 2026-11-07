@@ -2,7 +2,7 @@ import Spinner from '../components/spinner';
 import { useQuery } from '@tanstack/react-query';
 import PageTemplate from '../components/templatePages/templateMovieListPage'
 import {getPlayingNowMovies} from "../api/tmdb-api";
-import AddToFavoritesIcon from '../components/cardIcons/addToFavourites'
+import ToggleFavouriteIcon from '../components/cardIcons/toggleFavourite'
 
 const PlayingNowMoviesPage=(props)=>{
   const { data, error, isPending, isError  } = useQuery({
@@ -25,7 +25,7 @@ const PlayingNowMoviesPage=(props)=>{
       title="Playing Now"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return <ToggleFavouriteIcon movie={movie} />
       }}
     />
   );

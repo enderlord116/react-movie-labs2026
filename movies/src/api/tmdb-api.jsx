@@ -85,7 +85,7 @@ export const getTopRatedMovies=()=>{
 export const getMovieRecommedations=(args)=>{
   console.log(args)
   const [, idPart]=args.queryKey;
-  const {id}=idPart;
+  const {id} = idPart;
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
   ).then((response)=>{

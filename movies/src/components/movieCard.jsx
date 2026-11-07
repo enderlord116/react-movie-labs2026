@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { MoviesContext } from "../contexts/moviesContext";
 
 export default function MovieCard({movie, action}) {
-    const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { favourites, addToFavourites } = useContext(MoviesContext);
 
   if (favourites.find((id) => id === movie.id)) {
     movie.favourite = true;
@@ -32,13 +32,6 @@ export default function MovieCard({movie, action}) {
   return (
     <Card>
       <CardHeader
-        avatar={
-          movie.favourite ? (
-            <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavouriteIcon />
-            </Avatar>
-          ) : null
-        }
         title={
           <Typography variant="h5" component="p">
             {movie.title}{" "}

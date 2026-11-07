@@ -2,7 +2,7 @@ import Spinner from '../components/spinner';
 import { useQuery } from '@tanstack/react-query';
 import PageTemplate from '../components/templatePages/templateMovieListPage'
 import { getTopRatedMovies } from "../api/tmdb-api";
-import AddToFavoritesIcon from '../components/cardIcons/addToFavourites'
+import ToggleFavouriteIcon from '../components/cardIcons/toggleFavourite'
 
 const TopRatedMoviesPage=(props)=>{
   const { data, error, isPending, isError  } = useQuery({
@@ -25,7 +25,7 @@ const TopRatedMoviesPage=(props)=>{
       title="Top Rated"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return <ToggleFavouriteIcon movie={movie} />
       }}
     />
   );

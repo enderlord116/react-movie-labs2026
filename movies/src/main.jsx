@@ -2,9 +2,10 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes} from "react-router";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
+import MovieRecommendationsPage from "./pages/movieRecommendationsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingPage from "./pages/upcomingMoviesPage";
-import PlayingNowPage from "./pages/playingNowMoviesPage.jsx";
+import PlayingNowPage from "./pages/playingNowMoviesPage";
 import TopRatedPage from "./pages/topRatedMoviesPage";
 import PopularPage from "./pages/popularMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -12,7 +13,7 @@ import SiteHeader from './components/siteHeader'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
-import AddMovieReviewPage from './pages/addmovieReviewPage.jsx'
+import AddMovieReviewPage from './pages/addmovieReviewPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/movies/popular" element={<PopularPage/>}/>
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/movies/:id/recommendations" element={<MovieRecommendationsPage/>}/>
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
             <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />

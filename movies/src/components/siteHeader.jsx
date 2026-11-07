@@ -19,7 +19,7 @@ const SiteHeader = () => {
   const open = Boolean(anchorEl);
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
   
   const navigate = useNavigate();
 
@@ -49,9 +49,9 @@ const SiteHeader = () => {
             TMDB Client
           </Typography>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            All you ever wanted to know about Movies!
+            Movie Database Searcher
           </Typography>
-            {isMobile ? (
+            {isTablet? (
               <>
                 <IconButton
                   aria-label="menu"

@@ -4,7 +4,7 @@ import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "@tanstack/react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from "../components/spinner";
-import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import ToggleFavouriteIcon from "../components/cardIcons/toggleFavourite";
 import WriteReview from "../components/cardIcons/writeReview";
 
 const FavouriteMoviesPage = () => {
@@ -41,7 +41,7 @@ const FavouriteMoviesPage = () => {
       action={(movie) => {
         return (
           <>
-            <RemoveFromFavourites movie={movie} />
+            <ToggleFavouriteIcon movie={movie} />
             <WriteReview movie={movie} />
           </>
         );
