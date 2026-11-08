@@ -30,10 +30,12 @@ export default function MovieCard({movie, action}) {
   return (
     <Card>
       <CardHeader
-        title={
-          <Typography variant="h5" component="p">
-            {movie.title}{" "}
-          </Typography>
+        title={        
+          <Link to={`/movie/${movie.id}`}>
+            <Typography variant="h5" component="p">
+              {movie.title}{" "}
+            </Typography>
+          </Link>
         }
       />
       <CardMedia
@@ -62,11 +64,6 @@ export default function MovieCard({movie, action}) {
       </CardContent>
       <CardActions disableSpacing>
         {action(movie)}
-        <Link to={`/movie/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
-          </Button>
-        </Link>
       </CardActions>
     </Card>
   );

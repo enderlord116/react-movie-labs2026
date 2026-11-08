@@ -87,4 +87,4 @@ const [drawerOpen, setDrawerOpen] = useState(false);
     </>
   );
 };
-export default MovieDetails ;
+export default MovieDetails;

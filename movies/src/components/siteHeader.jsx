@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -45,10 +47,16 @@ const SiteHeader = () => {
     <>
       <AppBar position="fixed" color="secondary">
         <Toolbar>
-          <Typography variant="h4" sx={{ flexGrow: 1 }}>
+          <Typography variant="h4">
             TMDB Client
           </Typography>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <IconButton aria-label="go back" onClick={() => navigate(-1)}>
+            <ArrowBackIcon color="primary" fontSize="large" />
+          </IconButton>
+          <IconButton aria-label="go forward" onClick={() => navigate(+1)}>
+            <ArrowForwardIcon color="primary" fontSize="large" />
+          </IconButton>
+          <Typography variant="h6" align="center" sx={{ flexGrow: 1 }}>
             Movie Database Searcher
           </Typography>
             {isTablet? (

@@ -12,7 +12,7 @@ export default function ActorCard({actor}){
     <CardHeader
     title={
       <Typography variant="h5">
-        <Link to={`/`}>
+        <Link to={`/actor/${actor.id}`}>
           {actor.name}
         </Link>
       </Typography>

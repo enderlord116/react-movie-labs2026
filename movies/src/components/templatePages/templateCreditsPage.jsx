@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Header from "../headerMovieList";
+import Header from "../header";
 import Grid from "@mui/material/Grid";
-import ActorList from "../actorGrid";
+import CreditGrid from "../creditGrid";
 
-function CastListPageTemplate({actors, title}) {
+function CastListPageTemplate({credits, title}) {
 
-  let displayedActors = actors
+  let displayedCredits = credits
 
   return (
     <Grid container>
@@ -13,7 +13,7 @@ function CastListPageTemplate({actors, title}) {
         <Header title={title} />
       </Grid>
       <Grid container sx={{flex: "1 1 500px"}}>
-        <ActorList actors={displayedActors}/>
+        <CreditGrid credits={displayedCredits}/>
       </Grid>
     </Grid>
   );
